@@ -1,0 +1,6 @@
+[submodule "cs247r"]
+	path = cs247r
+	url = https://github.com/Karthekeyan-aalto/cs247r.git
+[submodule "POSITConverter"]
+	path = POSITConverter
+	url = https://github.com/Karthekeyan-aalto/cs247r.git

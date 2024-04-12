@@ -1,0 +1,1 @@
+{"PCSystemInfo": {"NumberOfBits": 24, "ExponentBits": 9, "MantissaBits": 15, "EsBits": 7, "NumberSystem": "Posit", "SystemType": "SPN", "Model": "msnbc", "OptimisatisePCANToRemoveDuplicatePCAN": false, "ErrorAnalysisType": "RelativeError", "NumberOfAirthmeticNodes": 138, "NumberOfPorts": 34}}

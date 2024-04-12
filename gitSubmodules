@@ -1,0 +1,15 @@
+[submodule "WhistleSoftware"]
+	path = WhistleSoftware
+	url = git@bubba.ecdl.hut.fi:Whistle/whistle-software.git
+[submodule "NumberSystemPackages/FloatConverter"]
+	path = NumberSystemPackages/FloatConverter
+	url = git@bubba.ecdl.hut.fi:Whistle/frameworks/numbersystem/float/floatconverter.git
+[submodule "VHDLPackages/FixedFloatPackage"]
+	path = VHDLPackages/FixedFloatPackage
+	url = git@bubba.ecdl.hut.fi:Whistle/frameworks/VHDL/fixed-float-vhdl-package.git
+[submodule "VHDLPackages/POSITPackage"]
+	path = VHDLPackages/POSITPackage
+	url = git@bubba.ecdl.hut.fi:Whistle/frameworks/VHDL/posit-package.git
+[submodule "NumberSystemPackages/POSITConverter"]
+	path = NumberSystemPackages/POSITConverter
+	url = git@bubba.ecdl.hut.fi:Whistle/frameworks/numbersystem/posit/positconverter.git

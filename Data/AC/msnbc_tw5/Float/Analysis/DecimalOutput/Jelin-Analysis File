@@ -1,0 +1,41 @@
+Yesterday 22 Jan 2024
+
+Input Pattern
+
+1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1
+
+
+HW Bits:
+
+Exponent Bits:6
+Mantissa Bits:15
+
+HWOutput:
+
+0.0006602704524993896
+
+
+SW Output:
+
+0.00272081349756026
+
+Today 23 Jan 2024
+
+Input Pattern
+
+0,1,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0
+
+HW Bits:
+
+Exponent Bits:6
+Mantissa Bits:15
+
+
+HWOutput:
+
+6.228333404578734e-10
+
+
+SW Output:
+
+3.1432680566007723e-10

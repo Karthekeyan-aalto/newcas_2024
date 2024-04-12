@@ -1,0 +1,50 @@
+library ieee; 
+library ieee_proposed; 
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all; 
+use std.textio.all; 
+use ieee_proposed.fixed_pkg.all; 
+use ieee_proposed.fixed_float_types.all; 
+USE ieee_proposed.float_pkg.all; 
+ 
+entity PCSystem is 
+ 
+generic(mantissaBits : integer := 15; exponentBits : integer := 9);
+port( 
+v1 : in float (9 DOWNTO -14);
+v2 : in float (9 DOWNTO -14);
+v3 : in float (9 DOWNTO -14);
+v4 : in float (9 DOWNTO -14);
+v5 : in float (9 DOWNTO -14);
+v6 : in float (9 DOWNTO -14);
+v7 : in float (9 DOWNTO -14);
+v8 : in float (9 DOWNTO -14);
+v9 : in float (9 DOWNTO -14);
+v10 : in float (9 DOWNTO -14);
+v11 : in float (9 DOWNTO -14);
+v12 : in float (9 DOWNTO -14);
+v13 : in float (9 DOWNTO -14);
+v14 : in float (9 DOWNTO -14);
+v15 : in float (9 DOWNTO -14);
+v16 : in float (9 DOWNTO -14);
+v17 : in float (9 DOWNTO -14);
+vb1 : in float (9 DOWNTO -14);
+vb2 : in float (9 DOWNTO -14);
+vb3 : in float (9 DOWNTO -14);
+vb4 : in float (9 DOWNTO -14);
+vb5 : in float (9 DOWNTO -14);
+vb6 : in float (9 DOWNTO -14);
+vb7 : in float (9 DOWNTO -14);
+vb8 : in float (9 DOWNTO -14);
+vb9 : in float (9 DOWNTO -14);
+vb10 : in float (9 DOWNTO -14);
+vb11 : in float (9 DOWNTO -14);
+vb12 : in float (9 DOWNTO -14);
+vb13 : in float (9 DOWNTO -14);
+vb14 : in float (9 DOWNTO -14);
+vb15 : in float (9 DOWNTO -14);
+vb16 : in float (9 DOWNTO -14);
+vb17 : in float (9 DOWNTO -14);
+vout : out float (9 DOWNTO -14)); 
+ 
+end PCSystem; 
