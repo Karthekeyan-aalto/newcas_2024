@@ -1,0 +1,16 @@
+~
+*.
+*swp
+*~
+*pyc
+Simulation/simulation/work
+Simulation/simulation/ieee_proposed
+Simulation/simulation/transcript
+Simulation/simulation/vsim.wlf
+Data/SPN/
+Data/Logs/
+Data/AC/
+Simulation/simulation/Input.txt
+Simulation/simulation/Output.txt
+__pycache__
+*.DS_Store
