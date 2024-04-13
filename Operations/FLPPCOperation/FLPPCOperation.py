@@ -129,7 +129,7 @@ class FLPPCOperation(EquationParser):
         # print the operator
         #print("The operator: \n", self.currentOperator)
         # set the number of operations to number of operators
-        numberOfOperators = self.currentNumberOfOperations
+        numberOfOperators = self.currentNumberOfOperators
         #print("NumberOfOperators: \n", numberOfOperators)
         # make the startrange, stop range to access the required number of operandValues
         numberOfOperandValuesToBeAccessed = numberOfOperators + 1
