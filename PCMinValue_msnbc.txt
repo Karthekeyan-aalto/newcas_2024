@@ -1,0 +1,49 @@
+None
+None
+ModelName msnbc
+
+
+ ********* Start Analysis:  Bit optimisation analysis ******** 
+
+
+
+ ********* Start analysis: PCMinOperation ******** 
+
+
+
+ *********  End analysis: PCMinOperation ******** 
+
+ErrorTolerance 0.001
+Analysed Number of bits from fixed analysis: 72
+Final Mantissa bits 15
+Final ExponentBits 7
+Analysed Total number of bits from float analysis 22
+
+
+ ********* End Analysis: Bit Optimisation analysis ******** 
+
+
+
+ ********* Start analysis: PCOperation ******** 
+
+The total number of PCSystem ArithmeticNodes: 138
+PCModelTestdata Location: None
+
+
+ *********  End analysis: PCOperation ******** 
+
+The total number of PCSystem bits: 22
+The min value of PCSystem: 2.751901287396414e-19
+the number of ports: 34
+PCOperartion total number of nodes.....
+the number of ProductNodes: 103
+the number of SumNodes: 35
+PCMinOperation total number of nodes.....
+the number of PCMInOperation ProductNodes: 103
+the number of PCMInOperation MinNodes: 35
+PCMaxOperation total number of nodes.....
+the number of ProductNodes: 0
+the number of MaxNodes: 0
+The total number of PCSystem MMACUnitOperationsPerformed: 0
+The total number of PCSystem MMACUnits: 0
+PCSystemNumberSystemFolderName Float

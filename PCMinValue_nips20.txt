@@ -1,0 +1,49 @@
+None
+None
+ModelName nips20
+
+
+ ********* Start Analysis:  Bit optimisation analysis ******** 
+
+
+
+ ********* Start analysis: PCMinOperation ******** 
+
+
+
+ *********  End analysis: PCMinOperation ******** 
+
+ErrorTolerance 0.001
+Analysed Number of bits from fixed analysis: 74
+Final Mantissa bits 15
+Final ExponentBits 7
+Analysed Total number of bits from float analysis 22
+
+
+ ********* End Analysis: Bit Optimisation analysis ******** 
+
+
+
+ ********* Start analysis: PCOperation ******** 
+
+The total number of PCSystem ArithmeticNodes: 173
+PCModelTestdata Location: None
+
+
+ *********  End analysis: PCOperation ******** 
+
+The total number of PCSystem bits: 22
+The min value of PCSystem: 7.401430205391312e-20
+the number of ports: 40
+PCOperartion total number of nodes.....
+the number of ProductNodes: 129
+the number of SumNodes: 44
+PCMinOperation total number of nodes.....
+the number of PCMInOperation ProductNodes: 129
+the number of PCMInOperation MinNodes: 44
+PCMaxOperation total number of nodes.....
+the number of ProductNodes: 0
+the number of MaxNodes: 0
+The total number of PCSystem MMACUnitOperationsPerformed: 0
+The total number of PCSystem MMACUnits: 0
+PCSystemNumberSystemFolderName Float
