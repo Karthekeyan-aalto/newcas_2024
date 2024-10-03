@@ -109,6 +109,9 @@ class ProductNode():
         self._driverEquations = None 
         # the receiver equation will be used by the receiver of this product node (or whichever node the current produt node drives)
         self.receiverEquation = None
+        # property to enable and disable the productNode (only sw enable and disable for now, new versions will have more sophisticated options)
+        self.enable = True
+
     
     """
     # End - Default init Function
@@ -306,7 +309,7 @@ class ProductNode():
             #print("The port letter of the productNode:", portLetter)
             # check the first portLetter is actually a porLetter or not
             if (portLetter == self.portLetter):
-                print("Forming port at input 1 of the productNode")
+                #print("Forming port at input 1 of the productNode")
                 # then its a port
                 # generate a port object and set its name
                 port  = Port.Port()
@@ -378,7 +381,7 @@ class ProductNode():
             portLetter = self._input2Value[self.numberZero]
             # check the first portLetter is actually a porLetter or not
             if (portLetter == self.portLetter):
-                print("Forming port at input 2 of the productNode")
+                #print("Forming port at input 2 of the productNode")
                 # then its a port
                 # generate a port object and set its name
                 port  = Port.Port()

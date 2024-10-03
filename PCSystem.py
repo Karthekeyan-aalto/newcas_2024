@@ -775,7 +775,7 @@ class PCSystem ():
                 self.pcMinOperation.inputToPorts[port.name] = "1"
             # once the inputToPorts are set, configuration for sensitivity analysis is complete
             # set the inputPort
-        print("The inputToPorts are:", self.inputToPorts)
+        #print("The inputToPorts are:", self.inputToPorts)
         # set the current operation variable with the pcMinOperation object
         self.currentPCSystemOperation = self.pcMinOperation
     
@@ -818,7 +818,7 @@ class PCSystem ():
         self.fileSystem.pcSystemArithmeticNodes = self.arithmeticNodes
         # set the output node of the PCSystem to the PCFileSystem
         self.fileSystem.pcSystemOutputPort = self.outputPort
-        print("OutputPort ExponentBits:", self.outputPort.exponentBits)
+        #print("OutputPort ExponentBits:", self.outputPort.exponentBits)
         # set the fileSytem 
         self.fileSystem.pcSystemNumberSystem = self.numberSystem
         # set the pcSystem Info

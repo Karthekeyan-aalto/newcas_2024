@@ -93,14 +93,14 @@ class EquationParser():
         # if None, print error message using the else statement
         if operatorOrBracketToBePushed is not None:
             # print the array to understand before adding the element
-            print("OriginalOperatorAndBracketsQueue",self.bracketsAndOperatorStack)
+            #print("OriginalOperatorAndBracketsQueue",self.bracketsAndOperatorStack)
             # check whether the pushed element is an operator or bracket
             # add the operatorOrBracketToBePushed to the stack or list
             self.bracketsAndOperatorStack.append(operatorOrBracketToBePushed)
             # print the array to understand where the added element is
-            print("UpdatedOperatorAndBracketsQueue",self.bracketsAndOperatorStack)
+            #print("UpdatedOperatorAndBracketsQueue",self.bracketsAndOperatorStack)
         else:
-            print("Error: The passed argument operatorOrBracketToBePushed is None")
+            #print("Error: The passed argument operatorOrBracketToBePushed is None")
             return
         return
     
@@ -117,12 +117,12 @@ class EquationParser():
     
     def popBracketsAndOperatorStack(self):
         # print the Queue
-        print("OriginalbracketsAndOperatorStack",self.bracketsAndOperatorStack)
+        #print("OriginalbracketsAndOperatorStack",self.bracketsAndOperatorStack)
         # remove the last element of the bracketsAndOperatorStack
         # pop the last element that entered the queue last
         self.bracketsAndOperatorStack.pop(len(self.bracketsAndOperatorStack)-1) 
         # print the udpated Queue
-        print("UpdatedbracketsAndOperatorStack",self.bracketsAndOperatorStack)
+        #print("UpdatedbracketsAndOperatorStack",self.bracketsAndOperatorStack)
     
     """
     # End:popBracketsAndOperatorStack function
@@ -135,8 +135,8 @@ class EquationParser():
     """
     
     def popOperatorsFrombracketsAndOperatorStack(self, numberOfOperators):
-        print("Total operators to be popped:", numberOfOperators)
-        print("OriginalOperatorAndBracketsQueue",self.bracketsAndOperatorStack)
+        #print("Total operators to be popped:", numberOfOperators)
+        #print("OriginalOperatorAndBracketsQueue",self.bracketsAndOperatorStack)
         startIndex = len(self.bracketsAndOperatorStack)-1
         totalToBePopppedOPerators = numberOfOperators
         #closingBracket = None
@@ -144,12 +144,12 @@ class EquationParser():
             # closingBracket = self.bracketsAndOperatorStack[startIndex]
             #print("The operator:", closingBracket)
             totalToBePopppedOPerators = totalToBePopppedOPerators - 1
-            print("Number of operators left to be poped:", totalToBePopppedOPerators)
+            #print("Number of operators left to be poped:", totalToBePopppedOPerators)
             self.bracketsAndOperatorStack.pop(startIndex)
             startIndex = startIndex-1
             #closingBracket = self.bracketsAndOperatorStack[startIndex]
         
-        print("UpdatedbracketsAndOperatorStack",self.bracketsAndOperatorStack)
+        #print("UpdatedbracketsAndOperatorStack",self.bracketsAndOperatorStack)
     
     """
     # End:popOperatorsFrombracketsAndOperatorStack function
@@ -166,11 +166,11 @@ class EquationParser():
     
     def topElementOfBracketsAndOperatorStack(self):
         # print the stack to know what is the state of the stack before accessing the elements
-        print("OriginalOperatorAndBracketsQueue :",self.bracketsAndOperatorStack)
+        #print("OriginalOperatorAndBracketsQueue :",self.bracketsAndOperatorStack)
         # access the topElementOfBracketsAndOperatorStack
         topElementOfBracketsAndOperatorStack = self.bracketsAndOperatorStack[-1]
         # print the array to understand where the added element is
-        print("OriginalOperatorAndBracketsQueue :",self.bracketsAndOperatorStack)
+        #print("OriginalOperatorAndBracketsQueue :",self.bracketsAndOperatorStack)
         return topElementOfBracketsAndOperatorStack
     
     """
@@ -189,11 +189,11 @@ class EquationParser():
     
     def topElementIndexOfBracketsAndOperatorStack(self):
         # print the stack length
-        print("LengthOfOriginalOperatorAndBracketsQueue :",len(self.bracketsAndOperatorStack))
+        #print("LengthOfOriginalOperatorAndBracketsQueue :",len(self.bracketsAndOperatorStack))
         # access the topElementIndexOfBracketsAndOperatorStack
         topElementIndexOfBracketsAndOperatorStack = len(self.bracketsAndOperatorStack)-1
         # print the array to understand where the added element is
-        print("AccessedIndexOperatorAndBracketsQueue :",topElementIndexOfBracketsAndOperatorStack)
+        #print("AccessedIndexOperatorAndBracketsQueue :",topElementIndexOfBracketsAndOperatorStack)
         return topElementIndexOfBracketsAndOperatorStack
     
     """
@@ -227,13 +227,13 @@ class EquationParser():
         # if None, print error message using the else statement
         if operandElementToBePushed is not None:
             # print the stack to know what is the state of the stack before adding the element
-            print("OriginalOperandElementStack",self.operandElementStack)
+            #print("OriginalOperandElementStack",self.operandElementStack)
             # add the equationElementToBePushed to the stack or list
             self.operandElementStack.append(operandElementToBePushed)
             # print the array to understand where the added element is
-            print("UpdatedOperandElementStack",self.operandElementStack)
+            #print("UpdatedOperandElementStack",self.operandElementStack)
         else:
-            print("Error: The passed argument: equationElementToBePushed is None")
+            #print("Error: The passed argument: equationElementToBePushed is None")
             return
         return
     
@@ -249,13 +249,13 @@ class EquationParser():
     
     def popOperandElementStack(self):
         # print the stack to know what is the state of the stack before poping all the elements
-        print("OriginalOperandElementStack",self.operandElementStack)
+        #print("OriginalOperandElementStack",self.operandElementStack)
         # append the existing elements of the operandElementStack
         # as its a stack LIFO retreival scheme should be followed to correctly represent the string
         operandValue = None
         for indexOfOperandElement, operandElement in reversed(list(enumerate(self.operandElementStack))):
             # print the indeOfOperandElement and operandElement
-            print("IndexOfOperandElement: ", indexOfOperandElement, " OperandElement: ", operandElement)
+            #print("IndexOfOperandElement: ", indexOfOperandElement, " OperandElement: ", operandElement)
             # check the indexOfOperandElement, if its 0 we need to set the operandElement to the operandValue
             if indexOfOperandElement == (len(self.operandElementStack)-1):
                 operandValue = operandElement
@@ -263,11 +263,11 @@ class EquationParser():
                 # concatenate the operandValue with th operandElement
                 operandValue = operandValue + operandElement
         # print the operandValue
-        print("Th OperandValue :", operandValue)
+        #print("The OperandValue :", operandValue)
         # remove all the operands from the operandElementStack
         self.operandElementStack.clear()     
         # print the udpated stack
-        print("UpdatedOperandElementStack",self.operandElementStack)
+        #print("UpdatedOperandElementStack",self.operandElementStack)
         return operandValue
     
     """
@@ -301,11 +301,11 @@ class EquationParser():
         # if None, print error message using the else statement
         if operandValueTobePushed is not None:
             # print the stack to know what is the state of the stack before adding the element
-            print("OriginalOperaValueStack",self.operandValueStack)
+            #print("OriginalOperaValueStack",self.operandValueStack)
             # add the equationElementToBePushed to the stack or list
             self.operandValueStack.append(operandValueTobePushed)
             # print the array to understand where the added element is
-            print("UpdatedOperatorValueStack",self.operandValueStack)
+            #print("UpdatedOperatorValueStack",self.operandValueStack)
         else:
             #print("Error: The passed argument: operandValueTobePushed is None")
             return
@@ -356,9 +356,9 @@ class EquationParser():
             if (closingBracket == self.closingBracket):
                 #print("The operator:", closingBracket)
                 continue
-            print("The operator:", closingBracket)
+            #print("The operator:", closingBracket)
             numberOfOperators = numberOfOperators + 1
-            print("The number of operators:", numberOfOperators)
+            #print("The number of operators:", numberOfOperators)
             startIndex = startIndex-1
         return numberOfOperators
     """
@@ -382,23 +382,23 @@ class EquationParser():
             # abort the operation as operandValues are not enough to perfom operation
             return False
         # print the operator
-        print("The operator: \n", self.currentOperator)
+        #print("The operator: \n", self.currentOperator)
         # set the number of operations to number of operators
         numberOfOperators = self.currentNumberOfOperators
-        print("NumberOfOperators: \n", numberOfOperators)
+        #print("NumberOfOperators: \n", numberOfOperators)
         # make the startrange, stop range to access the required number of operandValues
         numberOfOperandValuesToBeAccessed = numberOfOperators + 1
-        print("NumberOfOperandValuesToBeAccessed: \n", numberOfOperandValuesToBeAccessed)
+        #print("NumberOfOperandValuesToBeAccessed: \n", numberOfOperandValuesToBeAccessed)
         # print the stack of the operandValueStack
-        print("OriginalOperandValueStack \n",self.operandValueStack)
+        #print("OriginalOperandValueStack \n",self.operandValueStack)
         # design the start range for the for loop
         startRange = (len(self.operandValueStack)-1)
-        print("The start range \n",startRange)
+        #print("The start range \n",startRange)
         # design the stop range for the loop
         operandValueLength = (len(self.operandValueStack))
         # the stop range for the for loop to access the operandValueStack
         stopRange = ((operandValueLength - numberOfOperandValuesToBeAccessed) - 1)
-        print("The stop range \n",stopRange)
+        #print("The stop range \n",stopRange)
                               
         # append the existing elements of the operandElementStack
         # as its a stack LIFO retreival scheme should be followed to correctly represent the operandValues
@@ -408,16 +408,16 @@ class EquationParser():
             # access and set again the relevant operator for the whole range
             # It helps support multiple type of operations
             # print the indexOfOperangValue
-            print("The index of  operand value : \n", indexOfOperandValue)
+            #print("The index of  operand value : \n", indexOfOperandValue)
             # access the operandValue using the index
             operandValue = self.operandValueStack[indexOfOperandValue]
             # print the indexOfOperandElement and operandElement
-            print("IndexOfOperandValue , OperandValue: \n", indexOfOperandValue, operandValue)
+            #print("IndexOfOperandValue , OperandValue: \n", indexOfOperandValue, operandValue)
             # check the indexOfOperandValue, if its top element index we need to set the operandValue with the firstElement
             if indexOfOperandValue == (len(self.operandValueStack)-1):
                 operationValue = float(operandValue)
                 # print the final operationValue
-                print( "The updated operationValue: ", operationValue)
+                #print( "The updated operationValue: ", operationValue)
             else:
                 # Then check the operator, for now two operations are supported
                 # 1. Multiplication 
@@ -436,7 +436,7 @@ class EquationParser():
                     
                     
         # print the final operationValue
-        print( "The updated operationValue: ", operationValue)
+        #print( "The updated operationValue: ", operationValue)
         # pop the operandValueStack
         self.popOperandValueStack(startRange, stopRange)
         # push the calculated new operandValues into operandValueStack
@@ -463,7 +463,7 @@ class EquationParser():
     """
     def processOperation(self):
         # print the event
-        print("Function call: Processing operation")
+        #print("Function call: Processing operation")
         # before pushing the operator to the bracketsAndOperatorStack, we need to concatenate the StringElements
         # together to form the equationValue to be operated on the operator
         operandValue = self.popOperandElementStack()
@@ -482,19 +482,19 @@ class EquationParser():
     
     def processOpeningBracket(self, openingBracket):
         # print the event
-        print("Found an opening bracket \n")
+        #print("Found an opening bracket \n")
         # access the top element of the bracketsAndOperatorStack
         topOperator = self.topElementOfBracketsAndOperatorStack()
-        print("Opening Bracket call: The last element of the operandAndBracketsStack: \n", topOperator)
+        #print("Opening Bracket call: The last element of the operandAndBracketsStack: \n", topOperator)
         # check whether its an operator or not
         if ((topOperator in self.additionOperator) or (topOperator in self.multiplicationOperator)):
             # print the operator
-            print("Opening Bracket call: The operator: \n", topOperator)
+            #print("Opening Bracket call: The operator: \n", topOperator)
             # check whether there are operandElements in operandElement stack by checking the length of the stack
             operandElementStackLength = len(self.operandElementStack)
             if operandElementStackLength > 0:
                 if (topOperator is self.multiplicationOperator):
-                    print("Open bracket multiplication operation call")
+                    #print("Open bracket multiplication operation call")
                     self.performMultiplicationOperation(openingBracket)
                 else:
                     # pop the operandElementStack
@@ -505,11 +505,11 @@ class EquationParser():
             # access the numberOfOperators and perform the left over operation
             numberOfOperators = self.findNumberOfOperatorsBetweenBrackets()
             if numberOfOperators > 0:
-                print("The total number of operators between opening and closing brackets are:", numberOfOperators)
+                #print("The total number of operators between opening and closing brackets are:", numberOfOperators)
                 # access the top element of the bracketsAndOperatorStack
                 operandValueStackLength = len(self.operandValueStack)
                 # if the length of the operandValueStack is less than 2
-                print("Available operandValues:", operandValueStackLength)
+                #print("Available operandValues:", operandValueStackLength)
                 topOperator = self.topElementOfBracketsAndOperatorStack()
                 # set the topOperator to be the currentOperator
                 self.currentOperator = topOperator
@@ -536,17 +536,17 @@ class EquationParser():
         # set the numberOfMultiplicationOperation
         numberOfAdditionOperation = 1
         # print the event
-        print("Found Addition operator")
+        #print("Found Addition operator")
         operandValue,topOperator = self.processOperation()
-        print("The operandValue before performing addition operation:", operandValue)
-        print("The top operator:", topOperator)
+        #print("The operandValue before performing addition operation:", operandValue)
+        #print("The top operator:", topOperator)
         # check whether which operator it is
         if (topOperator in self.multiplicationOperator):
             # print the event
-            print("Found different top operator, Multiplication operator is present before addition operator")
+            #print("Found different top operator, Multiplication operator is present before addition operator")
             # pop the operandElementStack
             operandValue = self.popOperandElementStack()
-            print("Poped operandValue :", operandValue)
+            #print("Poped operandValue :", operandValue)
             # if the operandValue is none, try to use the operandValues in operandValueStack to complete the operation
             if operandValue != None:
                 # push the operandValue to the operandValueStack
@@ -570,7 +570,7 @@ class EquationParser():
     """
     def performMultiplicationOperation(self, operator):
         # print the event
-        print("Function call: Perform multiplication operation using the parameter: Operator")
+        #print("Function call: Perform multiplication operation using the parameter: Operator")
         # set the numberOfMultiplicationOperation
         numberOfMultiplicationOperation = 1
         # set the local "multiplicationOperator" with the multiplication operation string
@@ -579,7 +579,7 @@ class EquationParser():
         # check whether its an addition operator or not
         if (topOperator in self.additionOperator):
             # print the operator
-            print("Found different operator: Addition before multiplication")
+            #print("Found different operator: Addition before multiplication")
             # pop the operandElementStack
             operandValue = self.popOperandElementStack()
             # if the operandValue is none, try to use the operandValues in operandValueStack to complete the operation
@@ -588,7 +588,7 @@ class EquationParser():
                 self.pushIntoOperandValueStack(operandValue)
         elif (topOperator in multiplicationOperator): 
             # print the operator
-            print("Found Multiplication operator")
+            #print("Found Multiplication operator")
             # set the topOperator to be the currentOperator
             self.currentOperator = topOperator
             # set the number of operators to currentNumberOfOperators
@@ -596,14 +596,14 @@ class EquationParser():
             # perform the previous multiplication operation first, then push the current multiplication operator
             isOperationSuccessFul = self.performOperation()
             if isOperationSuccessFul:
-                print("Top multiplication operation successful")
+                #print("Top multiplication operation successful")
                 # check the current operator element of the operatorBracketsStack again
                 if (operator in self.multiplicationOperator):
                     self.pushIntoBracketsAndOperatorStack(multiplicationOperator)
                 return
         elif (topOperator in self.openingBracket):
             # print the operator
-            print("Found opening bracket as top operator")
+            #print("Found opening bracket as top operator")
             # set the topOperator to be the currentOperator
             self.currentOperator = topOperator
             # set the number of operators to currentNumberOfOperators
@@ -611,7 +611,7 @@ class EquationParser():
             # perform the previous multiplication operation first, then push the current multiplication operator
             isOperationSuccessFul = self.performOperation()
             if isOperationSuccessFul:
-                print("Previous multiplication operation successful: Now opening bracket and closing bracket should be removed")
+                #print("Previous multiplication operation successful: Now opening bracket and closing bracket should be removed")
                 return
 
         # push the operator to the bracketsAndOperatorStack
@@ -639,19 +639,19 @@ class EquationParser():
         for indexOfEquationElement, equationElementString \
             in reversed(list(enumerate(self.equation))):
                 #print the index and equationElement
-                print("IndexOfEquationElement :", indexOfEquationElement, "EquationElementString: ",equationElementString)
+                #print("IndexOfEquationElement :", indexOfEquationElement, "EquationElementString: ",equationElementString)
                 # It is expected to have "(" at the end of the equation
                 # So check the ")" or closing bracket
                 if (equationElementString in self.closingBracket):
                     # print event
-                    print("Event: closing bracket")
+                    #print("Event: closing bracket")
                     # As we retrieved a closing bracket, we need to store it in bracketsAndOperatorStack
                     # push the closing bracket into the bracketsAndOperand stack
                     self.pushIntoBracketsAndOperatorStack(equationElementString)
                 # check whether the retrieved equationStringElement is an operator or not
                 elif ((equationElementString in self.multiplicationOperator)):
                     # perform multiplication operation
-                    print("Event: Multiplication operator")
+                    #print("Event: Multiplication operator")
                     self.performMultiplicationOperation(equationElementString)
                 elif ((equationElementString in self.additionOperator)):
                     # perform addition operation
@@ -661,7 +661,7 @@ class EquationParser():
                     self.processOpeningBracket(equationElementString)
                 else:
                     # print the event
-                    print("Event: Operand:", equationElementString)
+                    #print("Event: Operand:", equationElementString)
                     # the retrieved equationStringElement is part of the operand
                     # push into the operandElementStack
                     self.pushIntoOperandElementStack(equationElementString)
@@ -672,9 +672,9 @@ class EquationParser():
                     
         #print("Equation fully parsed: successfully or not still needs to be verified using the generated log or text file")
         # print the total number of multiplication operation
-        print("Total number of addition operations: ", self.additionOperation)
+        #print("Total number of addition operations: ", self.additionOperation)
         # print the totalnumber of addition operation
-        print("Total number of multiplication operations: ", self.multiplicationOperation)
+        #print("Total number of multiplication operations: ", self.multiplicationOperation)
         return
     
     """

@@ -156,11 +156,11 @@ class SWPCArithmeticNodesOptimiser(SWOptimiser):
                     self.totalNumberOfMultipliers = self.totalNumberOfMultipliers + 1
         
         
-        print("Given Duplicate ArithmeticNode Information",self.duplicateArithmeticNodesIndicesWithTheirReceiversIndices)
-        print("Given ArithmeticNodeIndices With Their Duplicates",self.arithmeticNodeIndicesWithTheirDuplicatesIndices)
-        print("Optimised number of arithmetic nodes", self.totalNumberOfArithmeticNodes)
-        print("Optimised number of adder nodes", self.totalNumberOfAdders)
-        print("Optimised number of multiplier nodes", self.totalNumberOfMultipliers)
+        #print("Given Duplicate ArithmeticNode Information",self.duplicateArithmeticNodesIndicesWithTheirReceiversIndices)
+        #print("Given ArithmeticNodeIndices With Their Duplicates",self.arithmeticNodeIndicesWithTheirDuplicatesIndices)
+        #print("Optimised number of arithmetic nodes", self.totalNumberOfArithmeticNodes)
+        #print("Optimised number of adder nodes", self.totalNumberOfAdders)
+        #print("Optimised number of multiplier nodes", self.totalNumberOfMultipliers)
 
 
     def main(self):

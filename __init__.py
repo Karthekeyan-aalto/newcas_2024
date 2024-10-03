@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     
     # set all the above properties as configuration details for the operations package
-    system.configurationDetailsOfSystemPackage = {"PCSystemInfo": {"NumberOfBits":24,"MantissaBits":15,"ExponentBits":9,"EsBits":6, "NumberSystem":"Posit", "SystemType":"SPN", "Model":"msnbc", "OptimisePCANToRemoveDuplicatePCAN":False}}
+    system.configurationDetailsOfSystemPackage = {"PCSystemInfo": {"NumberOfBits":22,"MantissaBits":15,"ExponentBits":7,"EsBits":6, "NumberSystem":"Float", "SystemType":"AC", "Model":"nltcs_a", "OptimisePCANToRemoveDuplicatePCAN":True}}
 
     # configure the system package
     system.configure()

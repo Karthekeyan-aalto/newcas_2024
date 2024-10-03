@@ -22,6 +22,8 @@ class SumNode():
         Basic properites of the SumNode, that describes the ports: input and output
         ===========================================================================
         """
+        # property to enable and disable the sumNode (only sw enable and disable for now, new versions will have more sophisticated options)
+        self.enable = True
         self.number = 0
         self._customName = None
         self._input1 = None

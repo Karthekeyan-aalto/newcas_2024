@@ -18,7 +18,7 @@ class PCMinOperation (EquationParser.EquationParser):
         # every PCOperation needs PCEquaiton.
         # PCEquation is set by the PCSystem
         self.equation = None
-        print("PCEquation string is set:", self.equation)
+        #print("PCEquation string is set:", self.equation)
         
         """
         # Start: Properties of the PCMinOperation needed by the PCSystem
@@ -51,23 +51,23 @@ class PCMinOperation (EquationParser.EquationParser):
             # abort the operation as operandValues are not enough to perfom operation
             return False
         # print the operator
-        print("The operator: \n", self.currentOperator)
+        #print("The operator: \n", self.currentOperator)
         # set the number of operations to number of operators
         numberOfOperators = self.currentNumberOfOperators
         #print("NumberOfOperators: \n", numberOfOperators)
         # make the startrange, stop range to access the required number of operandValues
         numberOfOperandValuesToBeAccessed = numberOfOperators + 1
-        print("NumberOfOperandValuesToBeAccessed: \n", numberOfOperandValuesToBeAccessed)
+        #print("NumberOfOperandValuesToBeAccessed: \n", numberOfOperandValuesToBeAccessed)
         # print the stack of the operandValueStack
-        print("OriginalOperandValueStack \n",self.operandValueStack)
+        #print("OriginalOperandValueStack \n",self.operandValueStack)
         # design the start range for the for loop
         startRange = (len(self.operandValueStack)-1)
-        print("The start range \n",startRange)
+        #print("The start range \n",startRange)
         # design the stop range for the loop
         operandValueLength = (len(self.operandValueStack))
         # the stop range for the for loop to access the operandValueStack
         stopRange = ((operandValueLength - numberOfOperandValuesToBeAccessed) - 1)
-        print("The stop range \n",stopRange)
+        #print("The stop range \n",stopRange)
                               
         # append the existing elements of the operandElementStack
         # as its a stack LIFO retreival scheme should be followed to correctly represent the operandValues
@@ -77,16 +77,16 @@ class PCMinOperation (EquationParser.EquationParser):
             # access and set again the relevant operator for the whole range
             # It helps support multiple type of operations
             # print the indexOfOperangValue
-            print("The index of  operand value : \n", indexOfOperandValue)
+            #print("The index of  operand value : \n", indexOfOperandValue)
             # access the operandValue using the index
             operandValue = self.operandValueStack[indexOfOperandValue]
             # print the indexOfOperandElement and operandElement
-            print("IndexOfOperandValue , OperandValue: \n", indexOfOperandValue, operandValue)
+            #print("IndexOfOperandValue , OperandValue: \n", indexOfOperandValue, operandValue)
             # check the indexOfOperandValue, if its top element index we need to set the operandValue with the firstElement
             if indexOfOperandValue == (len(self.operandValueStack)-1):
                 operationValue = operandValue
                 # print the updated operationValue
-                print( "The updated operationValue: ", operationValue)
+                #print( "The updated operationValue: ", operationValue)
             else:
                 # Then check the operator, for now two operations are supported
                 # 1. Multiplication 
@@ -112,7 +112,7 @@ class PCMinOperation (EquationParser.EquationParser):
                         # check the port name and access the port NUmber
                         if productNode.portsInfo[port.name] == '1':
                             #print the original input1 of ProductNode
-                            print("Original input1 of productNode:", productNode.input1)
+                            #print("Original input1 of productNode:", productNode.input1)
                             #print("InputValue for input1 of ProductNode:", self.inputToPorts[port.name])
                             # check the inputs to port for the particular port is available or not
                             # set the portName as a key and set the value of the key to 1 in a global dictionary
@@ -120,21 +120,21 @@ class PCMinOperation (EquationParser.EquationParser):
                             self.inputToPorts[port.name] = "1"
                             productNode.input1 = self.inputToPorts[port.name]
                             #print the updated input1 of ProductNode
-                            print("Updated input1 of productNode:", productNode.input1)
+                            #print("Updated input1 of productNode:", productNode.input1)
                             # set the input2 of the productNode
                             productNode.input2 = operandValue
                         elif productNode.portsInfo[port.name] == '2':
                             # set the input1 of the productNode
                             productNode.input1 = operationValue
-                            print("Original Input2 of productNode:", productNode.input2)
+                            #print("Original Input2 of productNode:", productNode.input2)
                             #print("InputValue for input2 of ProductNode:", self.inputToPorts[port.name])
                             # set the input to 1 for anyport
                             #print("Original inputToPorts value", self.inputToPorts[port.name], " for PortName:", port.name)
                             self.inputToPorts[port.name] = "1"
-                            print("Updated inputToPorts value", self.inputToPorts[port.name], " for PortName:", port.name)
+                            #print("Updated inputToPorts value", self.inputToPorts[port.name], " for PortName:", port.name)
                             productNode.input2 = self.inputToPorts[port.name]
                             #print the updated input1 of ProductNode
-                            print("Updated Input2 of productNode:", productNode.input2)
+                            #print("Updated Input2 of productNode:", productNode.input2)
                     
                     # check if the outputValue is available or not
                     if productNode.outputValue != None:
@@ -170,12 +170,12 @@ class PCMinOperation (EquationParser.EquationParser):
                     for port in minNode.ports:
                         # check the port name and access the port NUmber
                         if minNode.portsInfo[port.name] == '1':
-                            print("Original input1 of minNode:", minNode.input1)
+                            #print("Original input1 of minNode:", minNode.input1)
                             # set the input to 1 for anyport
                             self.inputToPorts[port.name] = "1"
                             minNode.input1 = self.inputToPorts[port.name]
                             #print the updated input1 of minNode
-                            print("Updated input1 of minNode:", minNode.input1)
+                            #print("Updated input1 of minNode:", minNode.input1)
                             # set the input2 of the minNode
                             minNode.input2 = operandValue
                         elif minNode.portsInfo[port.name] == '2':
@@ -202,14 +202,14 @@ class PCMinOperation (EquationParser.EquationParser):
                     self.minOperations = self.minOperations + 1
                             
         # print the final operationValue
-        print( "The updated operationValue: ", operationValue)
+        #print( "The updated operationValue: ", operationValue)
         # pop the operandValueStack
         self.popOperandValueStack(startRange, stopRange)
         # push the calculated new operandValues into operandValueStack
         self.pushIntoOperandValueStack(operationValue)
         # pop the operator or operators from the bracketsAndOperatorStack
         # before popping print the number of operators
-        print( "The number of opertators to be popped: ", numberOfOperators)
+        #print( "The number of opertators to be popped: ", numberOfOperators)
         self.popOperatorsFrombracketsAndOperatorStack(numberOfOperators)
         return True
     

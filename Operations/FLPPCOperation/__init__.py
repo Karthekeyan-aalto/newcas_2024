@@ -181,9 +181,9 @@ if __name__ == "__main__":
     fileSystem = PCFileSystem()
     # set the pcsystemType
     # system type AC = 0, SPN = 1
-    fileSystem.pcSystemType = 1
+    fileSystem.pcSystemType = 0
     # set teh pcSystemModel global property
-    pcSystemModel = "msnbc"
+    pcSystemModel = "nltcs_a"
     # set the modelName to the fileSystem PCSystemModel property
     fileSystem.pcSystemModel = pcSystemModel
     # set the fileSystemNumber
@@ -202,15 +202,29 @@ if __name__ == "__main__":
     #pcEquation = "(((0.54*v1)*0.25)+((0.65*v2)*0.32))"
     #pcEquation = "((v3*(0.54*v1))+(v4*(0.65*v2)))"
     #pcEquation = "(((0.54*v1)*v3)+((0.65*v2)*v4))"
+    # 3 level PCTree
+    #pcEquation = "((((((v1*0.35)+(v2*0.41))*0.23)+(((v3*0.25)+(v4*0.56))*0.31))*0.57)+(((((v5*0.29)+(v6*0.13))*0.59)+(((v7*0.33)+(v8*0.45))*0.95))*0.75))"
+    # 4 level PCTree
+    #pcEquation = "((((0.17*v1)+(0.18*v2))*0.34)+(((0.19*v3)+(0.20*v4))*0.35))" #= M21
+    #pcEquation = "((((0.21*v5)+(0.23*v6))*0.36)+(((0.24*v7)+(0.25*v8))*0.37))" #= M22
+    #pcEquation = "((((0.26*v9)+(0.27*v10))*0.38)+(((0.28*v11)+(0.29*v12))*0.39))" #= M23
+    #pcEquation = "((((0.30*v12)+(0.31*v13))*0.40)+(((0.32*v14)+(0.33*v15))*0.41))" #= M24
+    
+    #pcEquation = "((((((0.17*v1)+(0.18*v2))*0.34)+(((0.19*v3)+(0.20*v4))*0.35))*0.42)+(((((0.21*v5)+(0.23*v6))*0.36)+(((0.24*v7)+(0.25*v8))*0.37))*.43))" #= M31
+    #pcEquation = "((((((0.26*v9)+(0.27*v10))*0.38)+(((0.28*v11)+(0.29*v12))*0.39))*0.44)+(((((0.30*v12)+(0.31*v13))*0.40)+(((0.32*v14)+(0.33*v15))*0.41))*0.45))" #= M32
+
+    #pcEquation = "(((((((0.17*v1)+(0.18*v2))*0.34)+(((0.19*v3)+(0.20*v4))*0.35))*0.42)+(((((0.21*v5)+(0.23*v6))*0.36)+(((0.24*v7)+(0.25*v8))*0.37))*.43))+((((((0.26*v9)+(0.27*v10))*0.38)+(((0.28*v11)+(0.29*v12))*0.39))*0.44)+(((((0.30*v12)+(0.31*v13))*0.40)+(((0.32*v14)+(0.33*v15))*0.41))*0.45)))" #=M33
+
+    #pcEquation = "((((((v1*0.35)+(v2*0.41))*0.23)+(((v3*0.25)+(v4*0.56))*0.31))*0.57)+(((((v5*0.29)+(v6*0.13))*0.59)+(((v7*0.33)+(v8*0.45))*0.95))*0.75))"
     #pcEquation = "((0.54*v1)+((0.65*v2)*v3))"
     #pcEquation = "(((0.25*(v2*0.77))*(v3*0.99))+((0.35*(v1*0.54))*(v3*0.99)))"
     #pcEquation = "((0.25*((0.23*(v2*0.77))+(0.37*(v1*0.54))))+(0.6*((0.25*(v2*0.77))+(0.35*(v1*0.54)))))"
     #pcEquation = "((0.25*((0.23*(v2*0.77))+(0.37*(v1*0.54))))+(0.6*((0.23*(v2*0.77))+(0.37*(v1*0.54)))))"
     #pcEquation = "(((0.711743*(vb1))+(0.288257*v1))*((((0.756919*(vb2))+(0.243081*v2))*(((0.699091*(vb3))+(0.300909*v3))*(0.756090*(vb4))))+(((0.653649*(vb2))+(0.346351*v2))*(((0.999360*(vb3))+(0.000640*v3))*(0.243910*v4)))))"
-    mantissaBits = 25
+    mantissaBits = 15
     exponentBits = 7
     # 7+15 is 22, but we set the number of bits to 21, as auto pc suggest mantissabits including the fixed 1, so reducing it is necessary to generate Flopoco HW
-    numberOfBits = 32
+    numberOfBits = 22
     flopocoBits = 2
     frequency = 800
 
@@ -256,8 +270,8 @@ if __name__ == "__main__":
     #flpAdd = 24
     #flpMult = 9
 
-    adderPipelineDepth = 24
-    multiplierDepth = 9
+    adderPipelineDepth = 22
+    multiplierDepth = 4
 
     from SWOptimisers.SWPCTreeOptimiser.SWPCTreeOptimiser import SWPCTreeOptimiser
     optimiser = SWPCTreeOptimiser()
@@ -368,8 +382,8 @@ if __name__ == "__main__":
     #fileToWrite.write(pcSystemVHDLDescription.vhdlDescription)
     #fileToWrite.close()
     
-    vhdlFilePath = "/" + "SPN" + "/" + "msnbc" + "/" + "32" + "/" + "Float" + "/" +"PCSystem" + "/"
-    fileToWrite = writeToFile(vhdlFilePath,"PCSystem_32.vhd")
+    vhdlFilePath = "/" + "AC" + "/" + "nltcs_a" + "/" + "22" + "/" + "Float" + "/" +"PCSystem" + "/"
+    fileToWrite = writeToFile(vhdlFilePath,"PCSystem_22.vhd")
     fileToWrite.write(pcSystemVHDLDescription.vhdlDescription)
     fileToWrite.close()
     

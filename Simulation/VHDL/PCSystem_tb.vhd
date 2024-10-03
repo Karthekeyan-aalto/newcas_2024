@@ -1,95 +1,98 @@
-LIBRARY ieee; 
+library ieee; 
+library ieee_proposed; 
 use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all; 
 use std.textio.all; 
- 
+use ieee_proposed.fixed_pkg.all; 
+use ieee_proposed.fixed_float_types.all; 
+USE ieee_proposed.float_pkg.all; 
+
 ENTITY PCSystem_tb IS 
 END PCSystem_tb; 
  
 ARCHITECTURE behavioural of PCSystem_tb IS 
  
-CONSTANT numberOfBits : integer :=24;
+CONSTANT mantissaBits : integer :=15;
  
-SIGNAL v0a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v0b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v1a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v1b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v2a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v2b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v3a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v3b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v4a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v4b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v5a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v5b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v6a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v6b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v7a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v7b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v8a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v8b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v9a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v9b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v10a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v10b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v11a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v11b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v12a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v12b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v13a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v13b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v14a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v14b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v15a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v15b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v16a:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL v16b:std_logic_vector(23 DOWNTO 0):=(others=>'0');
-SIGNAL vout:std_logic_vector(23 DOWNTO 0):=(others=>'0');
+CONSTANT exponentBits : integer :=5;
+ 
+SIGNAL v1:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v2:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v3:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v4:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v5:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v6:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v7:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v8:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v9:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v10:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v11:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v12:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v13:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v14:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v15:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL v16:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb1:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb2:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb3:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb4:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb5:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb6:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb7:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb8:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb9:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb10:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb11:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb12:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb13:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb14:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb15:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vb16:float(5 DOWNTO -14):=(others=>'0');
+SIGNAL vout:float(5 DOWNTO -14):=(others=>'0');
 
 BEGIN
 
 pcSystem: ENTITY work.PCSystem(rtl)
 
-PORT MAP (v0a=>v0a,
-v0b=>v0b,
-v1a=>v1a,
-v1b=>v1b,
-v2a=>v2a,
-v2b=>v2b,
-v3a=>v3a,
-v3b=>v3b,
-v4a=>v4a,
-v4b=>v4b,
-v5a=>v5a,
-v5b=>v5b,
-v6a=>v6a,
-v6b=>v6b,
-v7a=>v7a,
-v7b=>v7b,
-v8a=>v8a,
-v8b=>v8b,
-v9a=>v9a,
-v9b=>v9b,
-v10a=>v10a,
-v10b=>v10b,
-v11a=>v11a,
-v11b=>v11b,
-v12a=>v12a,
-v12b=>v12b,
-v13a=>v13a,
-v13b=>v13b,
-v14a=>v14a,
-v14b=>v14b,
-v15a=>v15a,
-v15b=>v15b,
-v16a=>v16a,
-v16b=>v16b,
+generic map(mantissaBits,exponentBits)
+PORT MAP (v1=>v1,
+v2=>v2,
+v3=>v3,
+v4=>v4,
+v5=>v5,
+v6=>v6,
+v7=>v7,
+v8=>v8,
+v9=>v9,
+v10=>v10,
+v11=>v11,
+v12=>v12,
+v13=>v13,
+v14=>v14,
+v15=>v15,
+v16=>v16,
+vb1=>vb1,
+vb2=>vb2,
+vb3=>vb3,
+vb4=>vb4,
+vb5=>vb5,
+vb6=>vb6,
+vb7=>vb7,
+vb8=>vb8,
+vb9=>vb9,
+vb10=>vb10,
+vb11=>vb11,
+vb12=>vb12,
+vb13=>vb13,
+vb14=>vb14,
+vb15=>vb15,
+vb16=>vb16,
 vout=>vout);
 
 ioStimulus  : PROCESS IS
 
 VARIABLE fileline     : line;
-VARIABLE inputBuffer  : bit_vector(23 DOWNTO 0);
+VARIABLE inputBuffer  : integer;
 VARIABLE commaBuffer  : character;
 FILE inputfile  : text OPEN read_mode is "Input.txt";
 FILE outputfile : text OPEN write_mode is "Output.txt";
@@ -100,144 +103,136 @@ WHILE NOT endfile (inputfile) LOOP
 
 readline (inputfile, fileline);
 read (fileline, inputBuffer);
-v0a<=to_stdlogicvector(inputBuffer);
+v1<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v0b<=to_stdlogicvector(inputBuffer);
+v2<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v1a<=to_stdlogicvector(inputBuffer);
+v3<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v1b<=to_stdlogicvector(inputBuffer);
+v4<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v2a<=to_stdlogicvector(inputBuffer);
+v5<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v2b<=to_stdlogicvector(inputBuffer);
+v6<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v3a<=to_stdlogicvector(inputBuffer);
+v7<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v3b<=to_stdlogicvector(inputBuffer);
+v8<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v4a<=to_stdlogicvector(inputBuffer);
+v9<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v4b<=to_stdlogicvector(inputBuffer);
+v10<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v5a<=to_stdlogicvector(inputBuffer);
+v11<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v5b<=to_stdlogicvector(inputBuffer);
+v12<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v6a<=to_stdlogicvector(inputBuffer);
+v13<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v6b<=to_stdlogicvector(inputBuffer);
+v14<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v7a<=to_stdlogicvector(inputBuffer);
+v15<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v7b<=to_stdlogicvector(inputBuffer);
+v16<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v8a<=to_stdlogicvector(inputBuffer);
+vb1<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v8b<=to_stdlogicvector(inputBuffer);
+vb2<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v9a<=to_stdlogicvector(inputBuffer);
+vb3<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v9b<=to_stdlogicvector(inputBuffer);
+vb4<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v10a<=to_stdlogicvector(inputBuffer);
+vb5<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v10b<=to_stdlogicvector(inputBuffer);
+vb6<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v11a<=to_stdlogicvector(inputBuffer);
+vb7<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v11b<=to_stdlogicvector(inputBuffer);
+vb8<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v12a<=to_stdlogicvector(inputBuffer);
+vb9<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v12b<=to_stdlogicvector(inputBuffer);
+vb10<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v13a<=to_stdlogicvector(inputBuffer);
+vb11<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v13b<=to_stdlogicvector(inputBuffer);
+vb12<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v14a<=to_stdlogicvector(inputBuffer);
+vb13<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v14b<=to_stdlogicvector(inputBuffer);
+vb14<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v15a<=to_stdlogicvector(inputBuffer);
+vb15<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 read (fileline, inputBuffer);
-v15b<=to_stdlogicvector(inputBuffer);
-
-read (fileline, commaBuffer);
-read (fileline, inputBuffer);
-v16a<=to_stdlogicvector(inputBuffer);
-
-read (fileline, commaBuffer);
-read (fileline, inputBuffer);
-v16b<=to_stdlogicvector(inputBuffer);
+vb16<=to_float(inputBuffer,5,14);
 
 read (fileline, commaBuffer);
 WAIT FOR 5 ns;
 
-write (fileline, to_bitvector(vout));
+write (fileline, vout);
 writeline (outputfile, fileline);
 
 END LOOP;
