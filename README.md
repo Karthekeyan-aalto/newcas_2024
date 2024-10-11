@@ -25,3 +25,9 @@ if the selected PC type is AC and selected model is nltcs and number system is f
 
 The location of the generated hw will be in ./newcas_2024/Simulation/VHDL/AC/nltcs/Float/20/PCSystem/PCSystem.vhdl.
 
+
+# Missing
+
+The whole documentaion of the framework, still from the presented paper it can be underrstood.
+
+Feel free to raise questions in github for clarifications. Also, we are working on hardware schedulers, architectures and other advanced features for next version of the framework.
