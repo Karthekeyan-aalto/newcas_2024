@@ -1,6 +1,10 @@
 # The project has three branches
 
-Use the sqckt branch 
+1. main
+2. cmbckt
+3. sqckt
+
+For now, after cloning the project, kindly checkout the sqckt branch 
 
 Other branches will be merged in the future as working is on going internally at the respective branches.
 
