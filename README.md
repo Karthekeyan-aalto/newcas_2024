@@ -1,3 +1,10 @@
+# The project has three branches
+
+Use the sqckt branch 
+
+Other branches will be merged in the future as working is on going internally at the respective branches.
+
+
 # IEEE NEWCAS_2024
 The repository is the priliminary version of AutoPC software, that generates FPGA compatible hardware for Xilinx FPGAs.
 
